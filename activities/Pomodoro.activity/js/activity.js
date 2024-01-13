@@ -1,4 +1,4 @@
-define(['sugar-web/activity/activity', 'l10n', 'activity/progress', 'activity/stopwatch', 'sugar-web/env'], function (activity, l10n, Progress, Stopwatch, env) {
+define(['sugar-web/activity/activity', "l10n", 'activity/progress', 'activity/stopwatch', 'sugar-web/env'], function (activity, l10n, Progress, Stopwatch, env) {
 
   // Manipulate the DOM only when it is ready.
   requirejs(['domReady!'], function (doc) {
