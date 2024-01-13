@@ -22,7 +22,7 @@ FoodChain.saveContext = function() {
 		score: FoodChain.context.score,
 		game: FoodChain.context.game,
 		level: FoodChain.context.level,
-		language: l10n.language.code
+		language: l10n.init()
 	});
 	datastoreObject.setDataAsText(jsonData);
 	datastoreObject.save(function() {
@@ -36,7 +36,7 @@ FoodChain.loadContext = function(callback) {
 		if (context.score) FoodChain.context.score = parseInt(context.score);
 		if (context.game) FoodChain.context.game = context.game;
 		if (context.level) FoodChain.context.level = parseInt(context.level);
-		if (context.language) FoodChain.context.language = l10n.language.code = context.language;
+		if (context.language) FoodChain.context.language = l10n.init(context.language);
 		callback();
 	});
 };
@@ -55,9 +55,9 @@ FoodChain.setLocale = function() {
 	document.getElementById("en-button").classList.remove('active');
 	document.getElementById("fr-button").classList.remove('active');
 	document.getElementById("pt_BR-button").classList.remove('active');
-	if (l10n.language.code.indexOf("en") == 0) { document.getElementById("en-button").classList.add('active'); }
-	else if (l10n.language.code.indexOf("fr") == 0) { document.getElementById("fr-button").classList.add('active'); }
-	else if (l10n.language.code.indexOf("pt_BR") == 0) { document.getElementById("pt_BR-button").classList.add('active'); }
+	if (l10n.init.indexOf("en") == 0) { document.getElementById("en-button").classList.add('active'); }
+	else if (l10n.init.indexOf("fr") == 0) { document.getElementById("fr-button").classList.add('active'); }
+	else if (l10n.init.indexOf("pt_BR") == 0) { document.getElementById("pt_BR-button").classList.add('active'); }
 	if (FoodChain.context.object != null)
 		FoodChain.context.object.setLocale();
 }
